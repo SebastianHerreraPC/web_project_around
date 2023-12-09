@@ -1,0 +1,94 @@
+.profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: auto;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 880px;
+  padding-top: 2em;
+  width: 100%;
+}
+
+.profile__avatar {
+  display: block;
+  margin: auto;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+}
+
+.profile__information {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 2em;
+}
+
+.profile__information-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 282px;
+  gap: 10px;
+  padding: 0 0 0 15px;
+}
+
+.profile__name {
+  font-weight: 500;
+  font-size: 1em;
+}
+
+.profile__job {
+  font-weight: 400;
+  font-size: 1em;
+}
+
+@media screen and (min-width: 400px) {
+  .profile__information {
+    align-items: flex-start;
+    width: 63%;
+  }
+
+  .profile__information-container {
+    justify-content: flex-start;
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .profile {
+    width: 95%;
+  }
+
+  .profile__information {
+    width: 58%;
+  }
+
+  .profile__information-container {
+    width: 100%;
+  }
+
+  .profile__name {
+    font-size: 2.6em;
+  }
+
+  .profile__job {
+    font-size: 1.1em;
+  }
+}
+
+@media screen and (min-width: 880px) {
+  .profile {
+    width: 100%;
+  }
+  .profile__avatar {
+    margin: 0 1.8em 0 0;
+  }
+  .profile__information {
+    width: 66%;
+    padding: 0;
+  }
+}

@@ -1,0 +1,15 @@
+.footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 880px;
+  color: rgba(84, 84, s84);
+  padding-bottom: 4em;
+}
+
+.footer__text {
+  width: 95%;
+  font-size: 1em;
+}
