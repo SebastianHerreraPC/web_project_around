@@ -1,17 +1,23 @@
 .cards {
+  color: black;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1em;
 }
 .card {
   background-color: white;
   width: 282px;
   height: 361px;
-  top: 329px;
-  left: 199px;
   gap: 0px;
-  border-radius: 10px 0px 0px 0px;
+  border-radius: 11px;
   opacity: 0px;
   overflow: hidden;
+  position: relative;
 }
 .card__image {
   width: 282px;
   height: 282px;
+}
+.card__info {
+  align-items: center;
 }
