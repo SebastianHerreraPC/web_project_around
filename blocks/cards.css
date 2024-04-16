@@ -1,0 +1,17 @@
+.cards {
+}
+.card {
+  background-color: white;
+  width: 282px;
+  height: 361px;
+  top: 329px;
+  left: 199px;
+  gap: 0px;
+  border-radius: 10px 0px 0px 0px;
+  opacity: 0px;
+  overflow: hidden;
+}
+.card__image {
+  width: 282px;
+  height: 282px;
+}

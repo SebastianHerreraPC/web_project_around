@@ -1,0 +1,57 @@
+.profile {
+  display: flex;
+  width: 882px;
+  height: 120px;
+  top: 159px;
+  left: 199px;
+  gap: 0px;
+  opacity: 0px;
+  /* border: 1px solid red; */
+  padding: 2em 0;
+}
+
+.profile__image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.profile__info {
+  /* border: 1px solid red; */
+  margin: 1em;
+}
+.profile__container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.profile__name {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 48px;
+  margin: 0;
+}
+.profile__button-edit {
+  background: #000;
+  border: 1px solid white;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  margin-left: 15px;
+}
+.profile__job {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal;
+}
+.profile__button-add {
+  background-color: #000;
+  border: 1px solid white;
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  position: relative;
+  margin: auto 0px auto auto;
+}
