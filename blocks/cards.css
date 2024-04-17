@@ -26,8 +26,36 @@
   text-align: center;
 }
 .card__text {
+  width: 246px;
+  height: 23px;
+  top: 636px;
+  left: 220px;
+  gap: 0px;
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29.05px;
+  text-align: left;
 }
 .card__button-like {
+  border: none;
+  background-color: white;
+  width: 21px;
+  height: 19px;
+  top: 641px;
+  left: 442px;
+  gap: 0px;
+  opacity: 0px;
+  cursor: pointer;
 }
-.card__-button-trash {
+.card__button-trash {
+  background-image: url(/images/Trash.png);
+  width: 18px;
+  right: 18px;
+  height: 19px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  top: 18px;
+  position: absolute;
 }
