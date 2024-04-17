@@ -20,4 +20,14 @@
 }
 .card__info {
   align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  text-align: center;
+}
+.card__text {
+}
+.card__button-like {
+}
+.card__-button-trash {
 }
