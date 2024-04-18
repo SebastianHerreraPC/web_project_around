@@ -113,21 +113,44 @@
         </div>
       </section>
     </main>
-
+    <div class="popup popup_profile">
+      <div class="popup__overlay"></div>
+      <div class="popup__content">
+        <form id="popupaddprofile" class="popup__form">
+          <button
+            type="button"
+            id="closeicon"
+            class="popup__close-icon"
+          ></button>
+          <h2 class="popup__edit">Editar perfil</h2>
+          <input
+            type="text"
+            minlength="2"
+            maxlength="40"
+            class="popup__input popup__input-name"
+            placeholder="Nombre"
+            value="Tu nombre"
+            name="name"
+            required
+          />
+          <input
+            type="text"
+            minlength="2"
+            maxlength="200"
+            class="popup__input popup__input-about"
+            placeholder="Acerca de mi"
+            value="Tu trabajo"
+            name="about"
+            required
+          />
+          <button type="submit" class="popup__button">Guardar</button>
+        </form>
+      </div>
+    </div>
     <footer class="footer">
       <p class="footer__info">&copy;2024 Sebastián Herrera</p>
     </footer>
-    <div class="popup" id="popup__edit">
-      <div class="popup__content">
-        <div class="popup__container">
-          <button class="popup__button-close"></button>
-          <p class="popup__title"></p>
-          <form action="" class="popup__form">
-            <fieldset class="popup__fieldset"></fieldset>
-            <button class="popup__button-save"></button>
-          </form>
-        </div>
-      </div>
-    </div>
+
+    <script></script>
   </body>
 </html>
