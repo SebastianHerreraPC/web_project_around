@@ -36,3 +36,15 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+.button__type-delete {
+  height: 20px;
+  width: 20px;
+  background-image: url(/images/trashWhite.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  position: relative;
+  left: 250px;
+  top: 20px;
+  z-index: 1;
+}
