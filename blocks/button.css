@@ -1,53 +1,38 @@
+.button {
+  border: none;
+}
+.button:hover {
+  scale: 1.1;
+}
 .button__type-edit {
-  background: url(../images/edit-avatar.svg) no-repeat center;
-  width: 24px;
   height: 24px;
-  border: 1px solid #fff;
-}
-.button__type-submit {
-  background-color: #000;
-  color: #fff;
-  width: 238px;
-  height: 46px;
-  border-radius: 2px;
-  margin-top: 2em;
-}
-.button__type-close {
-  background: url(../images/close-icon.svg) no-repeat center;
   width: 24px;
-  height: 24px;
-  border: none;
-  transform: rotate(90deg);
-  position: absolute;
-  top: -13%;
-  right: 0%;
+  background-image: url(/images/edit-avatar.svg);
+  background-color: transparent;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-
 .button__type-add {
-  background: url(../images/add.svg) no-repeat center;
-  width: 288px;
+  margin-left: 168px;
+  width: 150px;
   height: 50px;
-  border-radius: 2px;
-  border: 1px solid #fff;
+  background-image: url(/images/add.svg);
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid white;
 }
-
 .button__type-like {
-  background: url(../images/heart.svg) no-repeat center;
-  width: 23px;
-  height: 23px;
-  display: flex;
-  align-items: center;
-  border: none;
+  height: 30px;
+  width: 30px;
+  background-color: transparent;
+  background-image: url(/images/heart.svg);
+  background-position: center;
+  background-repeat: no-repeat;
 }
-
-@media screen and (min-width: 600px) {
-  .button__type-add {
-    width: 150px;
-    height: 50px;
-  }
-
-  .button__type-close {
-    top: -10%;
-    right: -5%;
-  }
+.button__type-like:hover {
+  background-image: url(/images/heart-black.svg);
+  background-position: center;
+  background-repeat: no-repeat;
 }

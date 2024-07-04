@@ -1,0 +1,40 @@
+.cards {
+  border: 1px solid white;
+  background-image: url();
+}
+.cards__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 17px;
+  row-gap: 20px;
+  border: 1px solid white;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 361px;
+  width: 282px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid white;
+}
+.card__image {
+  height: 282px;
+  width: 282px;
+  background-image: url(https://picsum.photos/id/237/200/300);
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 0px;
+}
+.card__info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  height: 80px;
+  background-color: white;
+  color: black;
+  font-size: 24px;
+  font-weight: 900;
+  text-align: left;
+}
