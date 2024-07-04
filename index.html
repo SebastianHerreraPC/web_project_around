@@ -87,6 +87,47 @@
         </div>
       </div>
     </template>
+    <template class="template__cards">
+      <div class="card">
+        <img src="" alt="" class="card__image" />
+        <div class="card__information">
+          <p class="card__title"></p>
+          <button class="button button__type-like"></button>
+          <button class="button button__type-trash"></button>
+        </div>
+      </div>
+    </template>
+    <section class="popup popup__add-card">
+      <div class="popup__cover">
+        <div class="popup__content">
+          <button class="button button__type-close"></button>
+          <h2 class="popup__form-title">Add</h2>
+          <form action="" class="popup__form">
+            <fieldset class="popup__form-set">
+              <input
+                type="text"
+                name="popup-nombre"
+                id="popup-nombre"
+                placeholder="Nombre"
+                required
+                minlength="1"
+                maxlength="30"
+              />
+              <input
+                type="url"
+                name="popup-link"
+                id="popup-link"
+                placeholder="Enlace de la imagen"
+                required
+              />
+            </fieldset>
+            <fieldset class="popup__form-set">
+              <button class="button button__type-submit">Guardar</button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </section>
 
     <script src="/scripts/index.js"></script>
     <script src="/scripts/index2.js"></script>
