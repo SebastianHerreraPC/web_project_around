@@ -8,4 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const inputJob = querySelector(".popup__input-job");
   const popEdit = querySelector(".popup__forms");
   const popProfile = querySelector(".popup__edit-profile");
+
+  //primera funcion
+
+  function popupopen() {}
 });
