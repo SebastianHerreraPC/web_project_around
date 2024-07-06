@@ -27,4 +27,12 @@ document.addEventListener("DOMContentLoaded", function () {
   closeButton.addEventListener("click", function () {
     popupClose();
   });
+
+  popEdit.addEventListener("submit", function (event) {
+    event.preventDefault();
+    profileName.textContent = inputName.value;
+    profileJob.textContent = inputJob.value;
+    popEdit.reset();
+    popupClose();
+  });
 });
