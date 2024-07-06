@@ -9,7 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const popEdit = querySelector(".popup__forms");
   const popProfile = querySelector(".popup__edit-profile");
 
-  //primera funcion
-
-  function popupopen() {}
+  //primera funcion para que aparezca
+  function popupOpen() {
+    popProfile.style.display("block");
+  }
 });
