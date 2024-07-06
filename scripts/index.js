@@ -13,4 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
   function popupOpen() {
     popProfile.style.display("block");
   }
+
+  //funcion  para que se oculte
+  function popupClose() {
+    popProfile.style.display("none");
+  }
+  //funcion de el boton
 });
