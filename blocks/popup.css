@@ -8,7 +8,13 @@
 .popup__edit-profile {
   display: none;
 }
+
+.popup__edit-images {
+  display: none;
+}
 .popup__cover {
   display: flex;
   flex-direction: column;
+}
+.popup__forms {
 }
