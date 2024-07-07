@@ -21,9 +21,9 @@
 .card__image {
   height: 282px;
   width: 282px;
-  background-image: url(https://picsum.photos/id/237/200/300);
   background-position: center;
   background-size: cover;
+  background-image: url();
   margin-bottom: 0px;
 }
 .card__info {

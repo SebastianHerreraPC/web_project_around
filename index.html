@@ -128,9 +128,9 @@
         <section class="popup popup__add-images">
           <div class="popup__cover">
             <div class="popup__content">
-              <button class="button button__add-close"></button>
+              <button class="button button__type-add-close"></button>
             </div>
-            <div class="popup__forms">
+            <div class="popup__form-add">
               <h2 class="popup__form-tile">Editar imagenes:</h2>
               <form action="" class="popup__form">
                 <fieldset class="popup__form-set">
@@ -138,13 +138,14 @@
                     type="text"
                     name="popup-lugar"
                     id="popup-lugar"
+                    class="popup__lugar"
                     placeholder="Titulo"
                     required
                     minlength="1"
                     maxlength="30"
                   />
                   <input
-                    type="text"
+                    type="url"
                     name="popup-url"
                     id="popup-url"
                     placeholder="Enlace de la Imagen"
@@ -164,6 +165,17 @@
         <footer class="footer">
           <p class="footer__copy">Around the U.S.</p>
         </footer>
+        <template id="card__template">
+          <div class="card">
+            <div class="card__image">
+              <button class="button button__type-delete"></button>
+            </div>
+            <div class="card__info">
+              <p class="card__name"></p>
+              <button class="button button__type-like"></button>
+            </div>
+          </div>
+        </template>
       </main>
       <script src="/scripts/index.js"></script>
       <script src="/scripts/index2.js"></script>

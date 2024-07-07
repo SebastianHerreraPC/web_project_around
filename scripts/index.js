@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     inputName.value = profileName.textContent;
     inputJob.value = profileJob.textContent;
   });
+  //funcion de cerrar
   closeButton.addEventListener("click", function () {
     popupClose();
   });
