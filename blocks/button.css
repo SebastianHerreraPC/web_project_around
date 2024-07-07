@@ -56,3 +56,10 @@
   top: 20px;
   z-index: 1;
 }
+.button__add-close {
+  height: 30px;
+  width: 30px;
+  background-color: transparent;
+  background-image: url(/images/popup-close.png);
+  background-size: cover;
+}
