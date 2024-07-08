@@ -2,9 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
   //declaraciones
   const popupAdd = document.querySelector(".popup__add-images");
   const buttonAdd = document.querySelector(".button__type-add");
-  const buttonAddClose = document.querySelector(".button__type-add-close");
+  const buttonAddClose = document.querySelector(".popup__button-add-close");
   const popForm = document.querySelector(".popup__form-add");
-  const popImput = document.querySelector(".popup__lugar");
+  const popInput = document.querySelector(".popup__lugar");
   const popUrl = document.querySelector(".popup__url");
   const popTemplate = document.querySelector("#card__template");
   const cardsArea = document.querySelector(".cards__container");
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   popForm.addEventListener("submit", function (event) {
     event.preventDefault();
-    const placeValue = popImput.value;
+    const placeValue = popInput.value;
     const linkValue = popUrl.value;
     const newNode = popTemplate.content.querySelector(".card").cloneNode(true);
     newNode.querySelector(".card__image").src = linkValue;
@@ -62,9 +62,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   initialCards.forEach(function (item) {
-    const newNode = templateNode.content.querySelector(".card").cloneNode(true);
+    const newNode = popTemplate.content.querySelector(".card").cloneNode(true);
     newNode.querySelector(".card__image").src = item.link;
-    newNode.querySelector(".card__title").textContent = item.name;
+    newNode.querySelector(".card__name").textContent = item.name;
     cardsArea.prepend(newNode);
   });
 });
