@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const buttonAddClose = document.querySelector(".button__type-add-close");
   const popForm = document.querySelector(".popup__form-add");
   const popImput = document.querySelector(".popup__lugar");
+  const popUrl = document.querySelector(".popup__url");
   const popTemplate = document.querySelector("#card__template");
   const cardsArea = document.querySelector(".cards__container");
   const initialCards = [
@@ -51,12 +52,19 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   popForm.addEventListener("submit", function (event) {
     event.preventDefault();
-    const value = popImput.value;
+    const placeValue = popImput.value;
+    const linkValue = popUrl.value;
     const newNode = popTemplate.content.querySelector(".card").cloneNode(true);
-    newNode.querySelector(".card__image").style.backgroundImage =
-      "url('https://picsum.photos/200/300?r=' + Math.random())";
-    newNode.querySelector(".card__name").textContent = value;
+    newNode.querySelector(".card__image").src = linkValue;
+    newNode.querySelector(".card__name").textContent = placeValue;
     cardsArea.append(newNode);
     popForm.reset();
+  });
+
+  initialCards.forEach(function (item) {
+    const newNode = popTemplate.content.querySelector(".card").cloneNode(true);
+    newNode.querySelector(".card__image").src = item.link;
+    newNode.querySelector(".card__name").textContent = placeValue;
+    cardsArea.prepend(newNode);
   });
 });
