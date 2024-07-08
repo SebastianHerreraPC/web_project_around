@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   //declaraciones
   const popupAdd = document.querySelector(".popup__add-images");
-  const buttonAdd = document.querySelector(".button__type-add");
+  const buttonAdd = document.querySelector(".profile__add-button");
   const buttonAddClose = document.querySelector(".popup__button-add-close");
   const popForm = document.querySelector(".popup__form-add");
   const popInput = document.querySelector(".popup__lugar");
