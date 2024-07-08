@@ -62,9 +62,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   initialCards.forEach(function (item) {
-    const newNode = popTemplate.content.querySelector(".card").cloneNode(true);
+    const newNode = templateNode.content.querySelector(".card").cloneNode(true);
     newNode.querySelector(".card__image").src = item.link;
-    newNode.querySelector(".card__name").textContent = placeValue;
+    newNode.querySelector(".card__title").textContent = item.name;
     cardsArea.prepend(newNode);
   });
 });
