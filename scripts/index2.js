@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const popUrl = document.querySelector(".popup__url");
   const popTemplate = document.querySelector("#card__template");
   const cardsArea = document.querySelector(".cards__container");
+
   const initialCards = [
     {
       name: "Valle de Yosemite",
@@ -66,5 +67,9 @@ document.addEventListener("DOMContentLoaded", function () {
     newNode.querySelector(".card__image").src = item.link;
     newNode.querySelector(".card__name").textContent = item.name;
     cardsArea.prepend(newNode);
+    const deleteButton = newNode.querySelector(".card__button-delete");
+    deleteButton.addEventListener("click", function () {
+      newNode.remove();
+    });
   });
 });
