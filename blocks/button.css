@@ -37,7 +37,7 @@
   background-repeat: no-repeat;
 }
 
-.popup__close--edit {
+.popup__content-close--edit {
   height: 30px;
   width: 30px;
   background-color: transparent;
