@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     newNode.querySelector(".card__name").textContent = placeValue;
     cardsArea.append(newNode);
     popForm.reset();
+    popForm.close();
   });
 
   initialCards.forEach(function (item) {
