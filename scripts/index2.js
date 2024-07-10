@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   //declaraciones
-  const popupAdd = document.querySelector(".popup__add-images");
+  const popupAdd = document.querySelector(".popup__cover-images");
   const buttonAdd = document.querySelector(".profile__add-button");
   const buttonAddClose = document.querySelector(".popup__button-add-close");
   const popForm = document.querySelector(".popup__form-add");
@@ -60,7 +60,6 @@ document.addEventListener("DOMContentLoaded", function () {
     newNode.querySelector(".card__name").textContent = placeValue;
     cardsArea.append(newNode);
     popForm.reset();
-    popForm.close();
   });
 
   initialCards.forEach(function (item) {
