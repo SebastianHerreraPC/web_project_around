@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const inputName = document.querySelector(".popup__input-name");
   const inputJob = document.querySelector(".popup__input-job");
   const popEdit = document.querySelector(".popup__form");
-  const popProfile = document.querySelector(".popup_edit_profile");
+  const popProfile = document.querySelector(".popup__cover-edit");
 
   function popupOpen() {
     popProfile.style.display = "block";
