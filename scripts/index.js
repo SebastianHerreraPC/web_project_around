@@ -21,8 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
     popupOpen();
     inputName.value = profileName.textContent;
     inputJob.value = profileJob.textContent;
-    inputName.value = "";
-    inputJob.value = "";
   });
 
   closeButton.addEventListener("click", function () {
@@ -110,21 +108,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const deleteButton = newNode.querySelector(".card__button-delete");
     deleteButton.addEventListener("click", function () {
       newNode.remove();
-    });
-  });
-
-  //validador
-  console.log(popEdit);
-
-  const inputElements = popEdit.querySelectorAll(".popup__item");
-  inputElements.forEach((inputElements) => {
-    inputElements.addEventListener("input", (event) => {
-      const errorNode = popEdit.querySelector(`.popoup__error_${popEdit.name}`);
-      if (!inputElements.validity.valid) {
-        inputElements.classList.add("popup__item_invalid");
-      } else {
-        inputElements.classList.remove("popup__item_invalid");
-      }
     });
   });
 });
