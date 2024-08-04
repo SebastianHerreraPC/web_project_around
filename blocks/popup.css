@@ -67,10 +67,10 @@ input {
   margin-top: 30px;
 }
 .popup__item {
-}
-.popup__item_invalid {
   color: red;
   border-bottom: 1px solid red;
+}
+.form__item-invalid {
 }
 
 .popoup__error {

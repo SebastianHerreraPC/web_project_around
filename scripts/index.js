@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const inputJob = document.querySelector(".popup__input-job");
   const popEdit = document.querySelector(".popup__form");
   const popProfile = document.querySelector(".popup__cover-edit");
+  const formElement = document.querySelector(".popup__forms");
 
   function popupOpen() {
     popProfile.style.display = "block";
@@ -21,6 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
     popupOpen();
     inputName.value = profileName.textContent;
     inputJob.value = profileJob.textContent;
+    inputJob.value = "";
+    inputName.value = "";
   });
 
   closeButton.addEventListener("click", function () {
@@ -31,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     event.preventDefault();
     profileName.textContent = inputName.value;
     profileJob.textContent = inputJob.value;
+
     popEdit.reset();
     popupClose();
   });
@@ -108,6 +112,26 @@ document.addEventListener("DOMContentLoaded", function () {
     const deleteButton = newNode.querySelector(".card__button-delete");
     deleteButton.addEventListener("click", function () {
       newNode.remove();
+    });
+  });
+
+  //validador nuevo
+
+  const formElements = document.querySelectorAll(".popup__form");
+
+  formElements.forEach((formElement) => {
+    formElement.addEventListener("input", () => {
+      const errorNode = formElement.querySelector(
+        `.form__error_${formElement.name}`
+      );
+      if (formElement.checkValidity()) {
+        formElement.classList.remove("form__item-invalid");
+        if (errorNode) {
+          errorNode.textContent = formElement.validationMessage;
+        }
+      } else {
+        formElement.classList.add("form__item-invalid");
+      }
     });
   });
 });
