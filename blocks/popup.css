@@ -66,13 +66,17 @@ input {
   color: white;
   margin-top: 30px;
 }
-.popup__item {
-  color: red;
-  border-bottom: 1px solid red;
-}
 .form__item-invalid {
+  border: 2px solid red;
 }
 
-.popoup__error {
+.popup__error {
+  display: none;
   color: red;
+
+  margin-top: 0.5em;
+}
+
+.form__item-invalid ~ .popup__error {
+  display: block;
 }
