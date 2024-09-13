@@ -34,7 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
     event.preventDefault();
     profileName.textContent = inputName.value;
     profileJob.textContent = inputJob.value;
-
     popEdit.reset();
     popupClose();
   });
@@ -116,25 +115,40 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //validador nuevo
-  const formElements = document.querySelectorAll(".popup__item");
+
+  const formElements = document.querySelectorAll(".popup__form");
 
   formElements.forEach((formElement) => {
     formElement.addEventListener("input", () => {
-      const errorNode = document.querySelector(
-        `.popup__error.popup__error__${formElement.name.split("-")[1]}`
+      const errorNode = formElement.querySelector(
+        `.form__error_${formElement.name}`
       );
-
       if (formElement.checkValidity()) {
         formElement.classList.remove("form__item-invalid");
         if (errorNode) {
-          errorNode.textContent = " ";
+          errorNode.textContent = formElement.validationMessage;
         }
       } else {
         formElement.classList.add("form__item-invalid");
-        if (errorNode) {
-          errorNode.textContent = formElement.validationMessage;
-        }
+        errorNode.textContent = "";
       }
     });
   });
 });
+///////
+
+class Card {
+  constructor(title, description, price, image) {
+    this._title = title;
+    this._description = description;
+    this._price = price;
+    this._image = image;
+  }
+  _getTemplate() {
+    const cardElement = document
+      .querySelector(".horizontal-card")
+      .content.querySelector(".card")
+      .cloneNode(true);
+    return cardElement;
+  }
+}
