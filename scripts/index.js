@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     event.preventDefault();
     profileName.textContent = inputName.value;
     profileJob.textContent = inputJob.value;
+
     popEdit.reset();
     popupClose();
   });
@@ -99,6 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
     newNode.querySelector(".card__image").src = linkValue;
     newNode.querySelector(".card__name").textContent = placeValue;
     cardsArea.append(newNode);
+    popupAddQuit();
     popForm.reset();
   });
 
@@ -115,40 +117,35 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //validador nuevo
-
-  const formElements = document.querySelectorAll(".popup__form");
+  const formElements = document.querySelectorAll(".popup__item");
 
   formElements.forEach((formElement) => {
     formElement.addEventListener("input", () => {
-      const errorNode = formElement.querySelector(
-        `.form__error_${formElement.name}`
+      const errorNode = document.querySelector(
+        `.popup__error.popup__error__${formElement.name.split("-")[1]}`
       );
+
       if (formElement.checkValidity()) {
         formElement.classList.remove("form__item-invalid");
         if (errorNode) {
-          errorNode.textContent = formElement.validationMessage;
+          errorNode.textContent = "";
+          errorNode.style.display = "none";
         }
       } else {
         formElement.classList.add("form__item-invalid");
-        errorNode.textContent = "";
+        if (errorNode) {
+          errorNode.style.display = "block";
+          if (formElement.validity.valueMissing) {
+            errorNode.textContent = "Este campo es obligatorio.";
+          } else if (formElement.validity.tooShort) {
+            errorNode.textContent = `Debe contener al menos ${formElement.minLength} caracteres.`;
+          } else if (formElement.validity.tooLong) {
+            errorNode.textContent = `Debe contener como máximo ${formElement.maxLength} caracteres.`;
+          } else {
+            errorNode.textContent = formElement.validationMessage;
+          }
+        }
       }
     });
   });
 });
-///////
-
-class Card {
-  constructor(title, description, price, image) {
-    this._title = title;
-    this._description = description;
-    this._price = price;
-    this._image = image;
-  }
-  _getTemplate() {
-    const cardElement = document
-      .querySelector(".horizontal-card")
-      .content.querySelector(".card")
-      .cloneNode(true);
-    return cardElement;
-  }
-}
