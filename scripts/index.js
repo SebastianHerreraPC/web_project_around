@@ -1,151 +1,64 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Primer archivo JS
-  const editButton = document.querySelector(".profile__button_edit");
-  const closeButton = document.querySelector(".popup__button-close-edit");
-  const profileName = document.querySelector(".profile__name-text");
-  const profileJob = document.querySelector(".profile__job");
-  const inputName = document.querySelector(".popup__input-name");
-  const inputJob = document.querySelector(".popup__input-job");
-  const popEdit = document.querySelector(".popup__form");
-  const popProfile = document.querySelector(".popup__cover-edit");
-  const formElement = document.querySelector(".popup__forms");
+import { Card } from "./card.js";
+import { FormValidator } from "./formValidator.js";
+import { openPopup, closePopup } from "./utils.js";
 
-  function popupOpen() {
-    popProfile.style.display = "block";
-  }
+//Hola, cambie mi codigo como lo dice el proyecto pero ahora no aparece, no se si las conexiones este mal
+//Y no entiendo si lo demas esta mal importado o si aun funciona por que no aparecen los popups, ¿Que podra ser?
 
-  function popupClose() {
-    popProfile.style.display = "none";
-  }
+const initialCards = [
+  {
+    name: "Valle de Yosemite",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
+  },
+  {
+    name: "Lago Louise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
+  },
+  {
+    name: "Montañas Calvas",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
+  },
+  {
+    name: "Latemar",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
+  },
+  {
+    name: "Parque Nacional de la Vanoise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
+  },
+  {
+    name: "Lago di Braies",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
+  },
+];
 
-  editButton.addEventListener("click", function () {
-    popupOpen();
-    inputName.value = profileName.textContent;
-    inputJob.value = profileJob.textContent;
-    inputJob.value = "";
-    inputName.value = "";
-  });
+const validationConfig = {
+  inputSelector: ".popup__item",
+  inputErrorClass: "form__item-invalid",
+};
 
-  closeButton.addEventListener("click", function () {
-    popupClose();
-  });
+const cardsContainer = document.querySelector(".cards__container");
 
-  popEdit.addEventListener("submit", function (event) {
-    event.preventDefault();
-    profileName.textContent = inputName.value;
-    profileJob.textContent = inputJob.value;
-
-    popEdit.reset();
-    popupClose();
-  });
-
-  // Segundo archivo JS
-  const popupAdd = document.querySelector(".popup__cover-images");
-  const buttonAdd = document.querySelector(".profile__add-button");
-  const buttonAddClose = document.querySelector(".popup__button-add-close");
-  const popForm = document.querySelector(".popup__form-add");
-  const popInput = document.querySelector(".popup__lugar");
-  const popUrl = document.querySelector(".popup__url");
-  const popTemplate = document.querySelector("#card__template");
-  const cardsArea = document.querySelector(".cards__container");
-
-  const initialCards = [
-    {
-      name: "Valle de Yosemite",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
-    },
-    {
-      name: "Lago Louise",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
-    },
-    {
-      name: "Montañas Calvas",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
-    },
-    {
-      name: "Latemar",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
-    },
-    {
-      name: "Parque Nacional de la Vanoise",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
-    },
-    {
-      name: "Lago di Braies",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
-    },
-  ];
-
-  function popupAddOpen() {
-    popupAdd.style.display = "block";
-  }
-
-  function popupAddQuit() {
-    popupAdd.style.display = "none";
-  }
-
-  buttonAdd.addEventListener("click", function () {
-    popupAddOpen();
-  });
-
-  buttonAddClose.addEventListener("click", function () {
-    popupAddQuit();
-  });
-
-  popForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-    const placeValue = popInput.value;
-    const linkValue = popUrl.value;
-    const newNode = popTemplate.content.querySelector(".card").cloneNode(true);
-    newNode.querySelector(".card__image").src = linkValue;
-    newNode.querySelector(".card__name").textContent = placeValue;
-    cardsArea.append(newNode);
-    popupAddQuit();
-    popForm.reset();
-  });
-
-  initialCards.forEach(function (item) {
-    const newNode = popTemplate.content.querySelector(".card").cloneNode(true);
-    newNode.querySelector(".card__image").src = item.link;
-    newNode.querySelector(".card__name").textContent = item.name;
-    cardsArea.prepend(newNode);
-
-    const deleteButton = newNode.querySelector(".card__button-delete");
-    deleteButton.addEventListener("click", function () {
-      newNode.remove();
-    });
-  });
-
-  //validador nuevo
-  const formElements = document.querySelectorAll(".popup__item");
-
-  formElements.forEach((formElement) => {
-    formElement.addEventListener("input", () => {
-      const errorNode = document.querySelector(
-        `.popup__error.popup__error__${formElement.name.split("-")[1]}`
-      );
-
-      if (formElement.checkValidity()) {
-        formElement.classList.remove("form__item-invalid");
-        if (errorNode) {
-          errorNode.textContent = "";
-          errorNode.style.display = "none";
-        }
-      } else {
-        formElement.classList.add("form__item-invalid");
-        if (errorNode) {
-          errorNode.style.display = "block";
-          if (formElement.validity.valueMissing) {
-            errorNode.textContent = "Este campo es obligatorio.";
-          } else if (formElement.validity.tooShort) {
-            errorNode.textContent = `Debe contener al menos ${formElement.minLength} caracteres.`;
-          } else if (formElement.validity.tooLong) {
-            errorNode.textContent = `Debe contener como máximo ${formElement.maxLength} caracteres.`;
-          } else {
-            errorNode.textContent = formElement.validationMessage;
-          }
-        }
-      }
-    });
-  });
+initialCards.forEach((data) => {
+  const card = new Card(data, "#card__template");
+  const cardElement = card.generateCard();
+  cardsContainer.append(cardElement);
 });
+
+const formElement = document.querySelector(".popup__form");
+
+const formValidator = new FormValidator(validationConfig, formElement);
+formValidator.enableValidation();
+
+const popupEdit = document.querySelector(".popup__cover-edit");
+document
+  .querySelector(".profile__button_edit")
+  .addEventListener("click", () => {
+    openPopup(popupEdit);
+  });
+
+document
+  .querySelector(".popup__button-close-edit")
+  .addEventListener("click", () => {
+    closePopup(popupEdit);
+  });
