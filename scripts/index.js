@@ -2,9 +2,6 @@ import { Card } from "./card.js";
 import { FormValidator } from "./formValidator.js";
 import { openPopup, closePopup } from "./utils.js";
 
-//Hola, cambie mi codigo como lo dice el proyecto pero ahora no aparece, no se si las conexiones este mal
-//Y no entiendo si lo demas esta mal importado o si aun funciona por que no aparecen los popups, ¿Que podra ser?
-
 const initialCards = [
   {
     name: "Valle de Yosemite",
@@ -61,4 +58,15 @@ document
   .querySelector(".popup__button-close-edit")
   .addEventListener("click", () => {
     closePopup(popupEdit);
+  });
+
+const popupAdd = document.querySelector(".popup__cover-images");
+document.querySelector(".profile__add-button").addEventListener("click", () => {
+  openPopup(popupAdd);
+});
+
+document
+  .querySelector(".popup__button-add-close")
+  .addEventListener("click", () => {
+    closePopup(popupAdd);
   });

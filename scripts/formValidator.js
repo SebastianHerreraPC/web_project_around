@@ -12,7 +12,7 @@ export class FormValidator {
       errorElement.textContent = inputElement.validationMessage;
       inputElement.classList.add(this._config.inputErrorClass);
     } else {
-      errorElement.textContent = "";
+      errorElement.textContent = " ";
       inputElement.classList.remove(this._config.inputErrorClass);
     }
   }
