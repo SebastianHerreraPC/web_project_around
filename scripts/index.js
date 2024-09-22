@@ -1,6 +1,10 @@
 import { Card } from "./card.js";
 import { FormValidator } from "./formValidator.js";
 import { openPopup, closePopup } from "./utils.js";
+import { Section } from "./section.js";
+import { PopupWithImage } from "./popupWithImage.js";
+import { PopupWithForm } from "./popupWithForm.js";
+import { UserInfo } from "./userInfo.js";
 
 const initialCards = [
   {
@@ -36,21 +40,49 @@ const validationConfig = {
 
 const cardsContainer = document.querySelector(".cards__container");
 
-initialCards.forEach((data) => {
-  const card = new Card(data, "#card__template");
-  const cardElement = card.generateCard();
-  cardsContainer.append(cardElement);
-});
+const cardSection = new Section(
+  {
+    items: initialCards,
+    renderer: (info) => {
+      const card = new Card(info, "#card__template");
+      const cardElement = card.generateCard();
+
+      // Agregar el evento para abrir el popup de la imagen
+      cardElement
+        .querySelector(".card__image")
+        .addEventListener("click", () => {
+          const popupWithImage = new PopupWithImage(".popup__image");
+          popupWithImage.open(info.link, info.name);
+        });
+
+      cardSection.addItem(cardElement);
+    },
+  },
+  ".cards__container"
+);
+
+cardSection.renderItems();
 
 const formElement = document.querySelector(".popup__form");
-
 const formValidator = new FormValidator(validationConfig, formElement);
 formValidator.enableValidation();
 
-const popupEdit = document.querySelector(".popup__cover-edit");
+const userInfo = new UserInfo({
+  nameSelector: ".profile__name-text",
+  jobSelector: ".profile__job",
+});
+
+const popupEdit = new PopupWithForm(".popup__cover-edit", (info) => {
+  userInfo.setUserInfo(info);
+  closePopup(popupEdit);
+});
+
 document
   .querySelector(".profile__button_edit")
   .addEventListener("click", () => {
+    const currentUserInfo = userInfo.getUserInfo();
+    document.querySelector("#popup-Nombre").value = currentUserInfo.name;
+    document.querySelector("#popup-Trabajo").value = currentUserInfo.job;
     openPopup(popupEdit);
   });
 
@@ -60,7 +92,13 @@ document
     closePopup(popupEdit);
   });
 
-const popupAdd = document.querySelector(".popup__cover-images");
+const popupAdd = new PopupWithForm(".popup__cover-images", (info) => {
+  const card = new Card(info, "#card__template");
+  const cardElement = card.generateCard();
+  cardSection.addItem(cardElement);
+  closePopup(popupAdd);
+});
+
 document.querySelector(".profile__add-button").addEventListener("click", () => {
   openPopup(popupAdd);
 });

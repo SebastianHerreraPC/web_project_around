@@ -1,34 +1,35 @@
-export class FormValidator {
-  constructor(config, formElement) {
-    this._config = config;
-    this._formElement = formElement;
+export class Card {
+  constructor(info, cardSelector) {
+    this._name = info.name;
+    this._link = info.link;
+    this._cardSelector = cardSelector;
   }
 
-  _checkInputValidity(inputElement) {
-    const errorElement = this._formElement.querySelector(
-      `.${inputElement.id}-error`
-    );
-    if (!inputElement.validity.valid) {
-      errorElement.textContent = inputElement.validationMessage;
-      inputElement.classList.add(this._config.inputErrorClass);
-    } else {
-      errorElement.textContent = " ";
-      inputElement.classList.remove(this._config.inputErrorClass);
-    }
+  _getTemplate() {
+    const cardElement = document
+      .querySelector(this._cardSelector)
+      .content.querySelector(".card")
+      .cloneNode(true);
+    return cardElement;
   }
 
   _setEventListeners() {
-    const inputElements = Array.from(
-      this._formElement.querySelectorAll(this._config.inputSelector)
-    );
-    inputElements.forEach((inputElement) => {
-      inputElement.addEventListener("input", () => {
-        this._checkInputValidity(inputElement);
+    this._element
+      .querySelector(".card__button-delete")
+      .addEventListener("click", () => {
+        this._handleDeleteCard();
       });
-    });
   }
 
-  enableValidation() {
+  _handleDeleteCard() {
+    this._element.remove();
+  }
+
+  generateCard() {
+    this._element = this._getTemplate();
+    this._element.querySelector(".card__image").src = this._link;
+    this._element.querySelector(".card__name").textContent = this._name;
     this._setEventListeners();
+    return this._element;
   }
 }
