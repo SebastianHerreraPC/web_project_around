@@ -47,7 +47,6 @@ const cardSection = new Section(
       const card = new Card(info, "#card__template");
       const cardElement = card.generateCard();
 
-      // Agregar el evento para abrir el popup de la imagen
       cardElement
         .querySelector(".card__image")
         .addEventListener("click", () => {
