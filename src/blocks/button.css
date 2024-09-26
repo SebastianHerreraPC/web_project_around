@@ -2,7 +2,7 @@
   border: none;
 }
 .button:hover {
-  scale: 1.1;
+  scale: 1;
 }
 .profile__button_edit {
   height: 24px;
