@@ -1,5 +1,4 @@
 .cards {
-  background-image: url();
 }
 .cards__container {
   display: grid;
@@ -21,7 +20,6 @@
   width: 282px;
   background-position: center;
   background-size: cover;
-  background-image: url();
   margin-bottom: 0px;
 }
 .card__info {

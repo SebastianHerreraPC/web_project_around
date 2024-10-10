@@ -1,7 +1,6 @@
 import "../pages/index.css";
 import { Card } from "./card.js";
-//import { FormValidator } from "./formValidator.js";
-import { openPopup, closePopup } from "./utils.js";
+
 import { Section } from "./section.js";
 import { PopupWithImage } from "./popupWithImage.js";
 import { PopupWithForm } from "./popupWithForm.js";
