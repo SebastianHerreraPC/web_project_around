@@ -1,18 +1,18 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./src/index.js", // Cambia esto a tu punto de entrada
+  entry: "./src/scripts/index.js", // Cambia la ruta al archivo JavaScript de entrada
   output: {
-    filename: "bundle.js", // Nombre del archivo de salida
-    path: path.resolve(__dirname, "dist"), // Cambia esto al directorio de salida
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist"),
   },
   module: {
     rules: [
       {
-        test: /\.css$/, // Para archivos CSS
+        test: /\.css$/, // Busca archivos CSS
         use: [
           "style-loader", // Inyecta CSS en el DOM
-          "css-loader", // Interpreta @import y url() como importaciones
+          "css-loader", // Permite importar archivos CSS en JS
           {
             loader: "postcss-loader", // Procesa CSS con PostCSS
             options: {
@@ -26,7 +26,6 @@ module.exports = {
           },
         ],
       },
-      // Otras reglas pueden ir aquí (por ejemplo, para JavaScript, imágenes, etc.)
     ],
   },
   mode: "development", // Cambia a 'production' para producción

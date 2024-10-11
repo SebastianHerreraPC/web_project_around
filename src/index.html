@@ -3,19 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Asegúrate de que el CSS se carga aquí -->
   </head>
   <body class="body">
     <div class="page">
       <header class="header">
-        <img src="<%=require('./images/logo.png') %>" alt="logo" />
+        <img src="<%= require('./images/logo.png') %>" alt="logo" />
       </header>
       <main class="main">
         <section class="profile">
           <div class="profile__images">
             <img
-              src="<%=require('./images/jacques.png') %>"
+              src="<%= require('./images/jacques.png') %>"
               alt=""
               class="profile__img"
             />
@@ -27,7 +28,6 @@
                 class="button profile__button profile__button_edit"
               ></button>
             </div>
-
             <p class="profile__job">Explorer</p>
           </div>
           <div class="profile__add-image">
@@ -61,7 +61,6 @@
                   <span class="popup__error popup__error__name"
                     >Por favor llena este campo</span
                   >
-
                   <input
                     type="text"
                     name="popup-Trabajo"
@@ -88,63 +87,10 @@
             </div>
           </div>
         </section>
-
-        <section class="popup__forms">
-          <div class="popup__cover-images">
-            <div class="popup__content">
-              <button
-                class="popup__button-close popup__button-add-close"
-              ></button>
-            </div>
-            <div class="popup__form-add">
-              <h2 class="popup__form-title">Editar imagenes:</h2>
-              <form action="" class="popup__form">
-                <fieldset class="popup__form-set">
-                  <input
-                    type="text"
-                    name="popup-lugar"
-                    id="popup-lugar"
-                    class="popup__lugar"
-                    placeholder="Titulo"
-                    required
-                    minlength="1"
-                    maxlength="30"
-                  />
-                  <input
-                    type="url"
-                    name="popup-url"
-                    id="popup-url"
-                    class="popup__url"
-                    placeholder="Enlace de la Imagen"
-                    required
-                    minlength="1"
-                    maxlength="300"
-                  />
-                </fieldset>
-                <fieldset class="popup__form-set">
-                  <button class="popup__form-set-type-submit button">
-                    Crear
-                  </button>
-                </fieldset>
-              </form>
-            </div>
-          </div>
-        </section>
-
         <footer class="footer">
           <p class="footer__copy">Around the U.S.</p>
         </footer>
-        <template id="card__template">
-          <div class="card">
-            <img src="images/imagenprueba.png" class="card__image" />
-            <button class="card__button-delete"></button>
-
-            <div class="card__info">
-              <p class="card__name"></p>
-              <button class="button button__type-like"></button>
-            </div>
-          </div>
-        </template>
+        <script src="../src/scripts/index.js"></script>
       </main>
     </div>
   </body>

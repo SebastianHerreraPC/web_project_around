@@ -7,33 +7,28 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   devtool: "inline-source-map",
   entry: {
-    main: "./src/scripts/index.js",
+    main: "./src/scripts/index.js", // Tu archivo de entrada principal
   },
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "main.js",
-    publicPath: "",
+    path: path.resolve(__dirname, "dist"), // Salida en la carpeta dist
+    filename: "main.js", // Nombre del archivo de salida
+    publicPath: "", // Ruta pública
   },
-  target: ["web", "es5"],
+  target: ["web", "es5"], // Compatibilidad con navegadores
   stats: { children: true },
-  mode: "development",
+  mode: "development", // Modo de desarrollo
   devServer: {
-    static: path.resolve(__dirname, "./dist"),
+    static: path.resolve(__dirname, "./dist"), // Carpeta estática para servir
     compress: true,
-    port: 8080,
-    open: true,
+    port: 8080, // Puerto del servidor
+    open: true, // Abre el navegador al iniciar
   },
   module: {
     rules: [
-      // esto es un array de reglas
-      // añádele un objeto que contenga reglas para Babel
       {
-        // una expresión regular que busca todos los archivos js
         test: /\.js$/,
-        // todos los archivos deben ser procesados por babel-loader
         loader: "babel-loader",
-        // excluye la carpeta node_modules, no necesitamos procesar archivos en ella
-        exclude: "/node_modules/",
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
@@ -42,14 +37,14 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-              importLoaders: 1,
+              importLoaders: 1, // Carga de CSS dentro de CSS
             },
           },
-          "postcss-loader",
+          "postcss-loader", // Procesa CSS con PostCSS
         ],
       },
       {
-        // añade la regla para el procesamiento de archivos
+        // Procesa imágenes y fuentes
         test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
         type: "asset/resource",
       },
@@ -57,9 +52,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html", // ruta a nuestro archivo index.html
+      template: "./src/index.html", // Ruta a tu archivo HTML
     }),
-    new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin(), // conecta el plugin para fusionar archivos CSS
+    new CleanWebpackPlugin(), // Limpia la carpeta dist antes de construir
+    new MiniCssExtractPlugin({ filename: "styles.css" }), // Extrae CSS a un archivo
   ],
 };
