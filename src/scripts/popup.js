@@ -6,11 +6,13 @@ export class Popup {
 
   open() {
     this._popup.style.display = "block";
+    document.querySelector(".popup__overlay").style.display = "initial";
     document.addEventListener("keydown", this._handleEscClose);
   }
 
   close() {
     this._popup.style.display = "none";
+    document.querySelector(".popup__overlay").style.display = "none";
     document.removeEventListener("keydown", this._handleEscClose);
   }
 

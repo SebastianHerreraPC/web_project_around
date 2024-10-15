@@ -92,7 +92,7 @@ document
     closePopup(popupEdit);
   });
 */
-const popupAdd = new PopupWithForm(".popup__cover-images", (info) => {
+const popupAdd = new PopupWithForm(".popup__cover-edit", (info) => {
   const card = new Card(info, "#card__template");
   const cardElement = card.generateCard();
   cardSection.addItem(cardElement);

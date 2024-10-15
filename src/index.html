@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="body">
     <div class="page">
@@ -37,6 +36,7 @@
           <div class="cards__container"></div>
         </section>
         <section class="popup">
+          <div class="popup__overlay"></div>
           <div class="popup__cover-edit">
             <div class="popup__content">
               <button
@@ -89,7 +89,16 @@
         <footer class="footer">
           <p class="footer__copy">Around the U.S.</p>
         </footer>
-        <script src="../src/scripts/index.js"></script>
+        <template id="card__template">
+          <div class="card">
+            <img src="images/imagenprueba.png" class="card__image" />
+            <button class="card__button-delete"></button>
+            <div class="card__info">
+              <p class="card__name"></p>
+              <button class="button button__type-like"></button>
+            </div>
+          </div>
+        </template>
       </main>
     </div>
   </body>
