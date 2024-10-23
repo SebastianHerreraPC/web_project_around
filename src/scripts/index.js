@@ -63,8 +63,8 @@ const cardSection = new Section(
 cardSection.renderItems();
 
 const formElement = document.querySelector(".popup__form");
-//const formValidator = new FormValidator(validationConfig, formElement);
-//formValidator.enableValidation();
+const formValidator = new FormValidator(validationConfig, formElement);
+formValidator.enableValidation();
 
 const userInfo = new UserInfo({
   nameSelector: ".profile__name-text",
@@ -73,7 +73,6 @@ const userInfo = new UserInfo({
 
 const popupEdit = new PopupWithForm(".popup__cover-edit", (info) => {
   userInfo.setUserInfo(info);
-  //closePopup(popupEdit);
 });
 
 document
@@ -82,16 +81,9 @@ document
     const currentUserInfo = userInfo.getUserInfo();
     document.querySelector("#popup-Nombre").value = currentUserInfo.name;
     document.querySelector("#popup-Trabajo").value = currentUserInfo.job;
-    //openPopup(popupEdit);
     popupEdit.open();
   });
-/*
-document
-  .querySelector(".popup__button-close-edit")
-  .addEventListener("click", () => {
-    closePopup(popupEdit);
-  });
-*/
+
 const popupAdd = new PopupWithForm(".popup__cover-edit", (info) => {
   const card = new Card(info, "#card__template");
   const cardElement = card.generateCard();
@@ -103,11 +95,3 @@ document.querySelector(".profile__add-button").addEventListener("click", () => {
   //openPopup(popupAdd);
   popupAdd.open();
 });
-
-/*
-document
-  .querySelector(".popup__button-add-close")
-  .addEventListener("click", () => {
-    closePopup(popupAdd);
-  });
-*/
