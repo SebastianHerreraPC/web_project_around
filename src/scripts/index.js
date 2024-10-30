@@ -1,10 +1,10 @@
 import "../pages/index.css";
 import { Card } from "./card.js";
-
 import { Section } from "./section.js";
 import { PopupWithImage } from "./popupWithImage.js";
 import { PopupWithForm } from "./popupWithForm.js";
 import { UserInfo } from "./userInfo.js";
+import { FormValidator, validationConfig } from "./formValidator.js";
 
 const initialCards = [
   {
@@ -32,11 +32,6 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
   },
 ];
-
-const validationConfig = {
-  inputSelector: ".popup__item",
-  inputErrorClass: "form__item-invalid",
-};
 
 const cardsContainer = document.querySelector(".cards__container");
 
@@ -88,10 +83,8 @@ const popupAdd = new PopupWithForm(".popup__cover-edit", (info) => {
   const card = new Card(info, "#card__template");
   const cardElement = card.generateCard();
   cardSection.addItem(cardElement);
-  //closePopup(popupAdd);
 });
 
 document.querySelector(".profile__add-button").addEventListener("click", () => {
-  //openPopup(popupAdd);
   popupAdd.open();
 });

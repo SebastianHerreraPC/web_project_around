@@ -1,35 +1,62 @@
-export class Card {
-  constructor(info, cardSelector) {
-    this._name = info.name;
-    this._link = info.link;
-    this._cardSelector = cardSelector;
+export class FormValidator {
+  constructor(config, formElement) {
+    this._config = config;
+    this._formElement = formElement;
+    this._inputList = Array.from(
+      this._formElement.querySelectorAll(this._config.inputSelector)
+    );
   }
 
-  _getTemplate() {
-    const cardElement = document
-      .querySelector(this._cardSelector)
-      .content.querySelector(".card")
-      .cloneNode(true);
-    return cardElement;
+  _showError(inputElement, errorMessage) {
+    const errorElement = this._formElement.querySelector(
+      `#${inputElement.id}-error`
+    );
+    inputElement.classList.add(this._config.inputErrorClass);
+    errorElement.textContent = errorMessage;
+  }
+
+  _hideError(inputElement) {
+    const errorElement = this._formElement.querySelector(
+      `#${inputElement.id}-error`
+    );
+    inputElement.classList.remove(this._config.inputErrorClass);
+    errorElement.textContent = "";
+  }
+
+  _checkInputValidity(inputElement) {
+    if (!inputElement.validity.valid) {
+      this._showError(inputElement, inputElement.validationMessage);
+    } else {
+      this._hideError(inputElement);
+    }
+  }
+
+  _toggleButtonState() {
+    const isFormValid = this._inputList.every((input) => input.validity.valid);
+    const submitButton = this._formElement.querySelector(
+      this._config.submitButtonSelector
+    );
+    submitButton.disabled = !isFormValid;
   }
 
   _setEventListeners() {
-    this._element
-      .querySelector(".card__button-delete")
-      .addEventListener("click", () => {
-        this._handleDeleteCard();
+    this._inputList.forEach((inputElement) => {
+      inputElement.addEventListener("input", () => {
+        this._checkInputValidity(inputElement);
+        this._toggleButtonState();
       });
+    });
   }
 
-  _handleDeleteCard() {
-    this._element.remove();
-  }
-
-  generateCard() {
-    this._element = this._getTemplate();
-    this._element.querySelector(".card__image").src = this._link;
-    this._element.querySelector(".card__name").textContent = this._name;
+  enableValidation() {
+    this._formElement.addEventListener("submit", (evt) => evt.preventDefault());
     this._setEventListeners();
-    return this._element;
+    this._toggleButtonState();
   }
 }
+
+export const validationConfig = {
+  inputSelector: ".popup__item",
+  inputErrorClass: "form__item-invalid",
+  submitButtonSelector: ".popup__button-save",
+};
