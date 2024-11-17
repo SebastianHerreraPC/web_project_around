@@ -54,7 +54,6 @@ export class FormValidator {
     this._toggleButtonState();
   }
 }
-
 export const validationConfig = {
   inputSelector: ".popup__item",
   inputErrorClass: "form__item-invalid",

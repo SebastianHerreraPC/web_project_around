@@ -7,12 +7,12 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   devtool: "inline-source-map",
   entry: {
-    main: "./src/scripts/index.js", // Tu archivo de entrada principal
+    main: "./src/scripts/index.js", 
   },
   output: {
-    path: path.resolve(__dirname, "dist"), // Salida en la carpeta dist
-    filename: "main.js", // Nombre del archivo de salida
-    publicPath: "", // Ruta pública
+    path: path.resolve(__dirname, "dist"), 
+    filename: "main.js",
+    publicPath: "", 
   },
   target: ["web", "es5"], // Compatibilidad con navegadores
   stats: { children: true },
@@ -37,10 +37,10 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-              importLoaders: 1, // Carga de CSS dentro de CSS
+              importLoaders: 1, 
             },
           },
-          "postcss-loader", // Procesa CSS con PostCSS
+          "postcss-loader", 
         ],
       },
       {
@@ -52,9 +52,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html", // Ruta a tu archivo HTML
+      template: "./src/index.html", 
     }),
-    new CleanWebpackPlugin(), // Limpia la carpeta dist antes de construir
-    new MiniCssExtractPlugin({ filename: "styles.css" }), // Extrae CSS a un archivo
+    new CleanWebpackPlugin(), 
+    new MiniCssExtractPlugin({ filename: "styles.css" }), 
   ],
 };
