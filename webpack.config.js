@@ -7,12 +7,12 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   devtool: "inline-source-map",
   entry: {
-    main: "./src/scripts/index.js", 
+    main: "./src/scripts/index.js",
   },
   output: {
-    path: path.resolve(__dirname, "dist"), 
+    path: path.resolve(__dirname, "dist"),
     filename: "main.js",
-    publicPath: "", 
+    publicPath: "",
   },
   target: ["web", "es5"], // Compatibilidad con navegadores
   stats: { children: true },
@@ -37,10 +37,10 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-              importLoaders: 1, 
+              importLoaders: 1,
             },
           },
-          "postcss-loader", 
+          "postcss-loader",
         ],
       },
       {
@@ -52,9 +52,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html", 
+      template: "./src/index.html",
     }),
-    new CleanWebpackPlugin(), 
-    new MiniCssExtractPlugin({ filename: "styles.css" }), 
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({ filename: "styles.css" }),
   ],
 };
