@@ -5,6 +5,9 @@ export class FormValidator {
     this._inputList = Array.from(
       this._formElement.querySelectorAll(this._config.inputSelector)
     );
+    this._errorElements = this._inputList.map((input) =>
+      this._formElement.querySelector(`#${input.id}-error`)
+    );
   }
 
   _showError(inputElement, errorMessage) {
@@ -54,6 +57,7 @@ export class FormValidator {
     this._toggleButtonState();
   }
 }
+
 export const validationConfig = {
   inputSelector: ".popup__item",
   inputErrorClass: "form__item-invalid",
