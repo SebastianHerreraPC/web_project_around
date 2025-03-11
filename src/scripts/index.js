@@ -1,12 +1,26 @@
-fetch("https://around-api.es.tripleten-services.com/v1/cards/", {
+const apiUrl = "https://around-api.es.tripleten-services.com/v1/users/me";
+
+fetch(apiUrl, {
+  method: "GET",
   headers: {
-    authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6",
+    authorization: "f7b52867-5f21-4350-88f2-8c1499ea8a83",
   },
 })
-  .then((res) => res.json())
-  .then((result) => {
-    console.log(result);
-  });
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+
+    const userName = document.querySelector(".profile__name");
+    const userAbout = document.querySelector(".profile__about");
+    const userAvatar = document.querySelector(".profile__avatar");
+
+    userName.textContent = data.user.name;
+    userAbout.textContent = data.user.about;
+    userAvatar.src = data.user.avatar;
+  })
+  .catch((error) =>
+    console.error("Error al obtener los datos del usuario:", error)
+  );
 
 import "../pages/index.css";
 import { Card } from "./card.js";
